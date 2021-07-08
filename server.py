@@ -19,6 +19,7 @@ def handleClient(conn, addr):
     while connected:
         msgLength = conn.recv(HEADER).decode(FORMAT)
         if msgLength:
+            msgLength = int(msgLength)
             msg = conn.recv(msgLength).decode(FORMAT)
             if msg == DISCONNECT_MESSAGE:
                 connected = False

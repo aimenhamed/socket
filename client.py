@@ -10,3 +10,12 @@ DISCONNECT_MESSAGE = '!DISCONNECT'
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(ADDR)
 
+def sendMessage(msg):
+    message = msg.encode(FORMAT)
+    msgLength = len(message)
+    sendLength = str(msgLength).encode(FORMAT)
+    sendLength += b' ' * (HEADER - len(sendLength))
+    client.send(sendLength)
+    client.send(message)
+
+sendMessage("Hello")
