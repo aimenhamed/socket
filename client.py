@@ -17,5 +17,8 @@ def sendMessage(msg):
     sendLength += b' ' * (HEADER - len(sendLength))
     client.send(sendLength)
     client.send(message)
+    print(client.recv(HEADER).decode(FORMAT))
 
-sendMessage("Hello")
+if __name__ == "__main__":
+    while True:
+        sendMessage(input())
