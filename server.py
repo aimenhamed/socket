@@ -7,7 +7,7 @@ SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = '!DISCONNECT'
-RECEIVED = '\n' * 30
+RECEIVED = '\n' * 32
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind(ADDR)
